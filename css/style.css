@@ -1,0 +1,149 @@
+/* RESET & VARIABLES */
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --font: 'Poppins', sans-serif;
+  --clr-light: #f1faee;
+  --clr-dark: #1d3557;
+  --clr-accent: #e63946;
+  --overlay: rgba(0,0,0,0.5);
+  --sidebar-w: 220px;
+}
+body {
+  font-family: var(--font);
+  background: var(--clr-light);
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* ---------------- PORTADA (index.html) ---------------- */
+.cover, .collage {
+  position: relative;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+}
+.collage {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+}
+.collage .item {
+  background-size: cover;
+  background-position: center;
+  transition: transform .5s;
+}
+.collage .item:hover {
+  transform: scale(1.1);
+}
+.cover .overlay {
+  position: absolute; inset:0;
+  background: var(--overlay);
+}
+.cover .cta {
+  position: absolute; top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+.cover .cta h1 {
+  font-size: 3rem;
+  margin-bottom: .5rem;
+}
+.cover .cta p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.cover .cta a.btn {
+  padding: .75rem 1.5rem;
+  background: var(--clr-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background .3s;
+}
+.cover .cta a.btn:hover {
+  background: #c2313e;
+}
+
+/* ------------- LAYOUT INTERIOR (otras páginas) ------------- */
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100vh;
+}
+.sidebar {
+  position: fixed; top:0; left:0; bottom:0;
+  width: var(--sidebar-w);
+  background: var(--clr-dark);
+  padding: 2rem 1rem;
+}
+.sidebar h2 {
+  color: #fff; margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.sidebar nav a {
+  display: block;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  padding: .25rem .5rem;
+  margin: .5rem 0;
+  border-radius: 4px;
+  transition: background .3s, color .3s;
+}
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  background: var(--clr-accent);
+  color: #fff;
+}
+.main {
+  margin-left: var(--sidebar-w);
+  padding: 2rem;
+}
+
+/* --------------- GENERIC HERO-SECTION --------------- */
+.hero-section {
+  position: relative;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.hero-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--overlay);
+}
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  padding: 1rem;
+}
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: .75rem;
+}
+.hero-content p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* ------------------ FOOTER ------------------ */
+.footer {
+  background: var(--clr-dark);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-left: var(--sidebar-w);
+}
+.footer img {
+  height: 24px;
+  margin: 0 .5rem;
+  filter: invert(1);
+}
+
+
+
